@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="PRAGMA" content="NO-CACHE">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <title></title>
+    <script src="emojione.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/emojione/1.4.1/assets/css/emojione.min.css" />
+
+    <script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js" type="text/javascript"></script>
+</head>
+<script>
+
+  var item;
+Office.initialize = function (reason) {
+   write("Retrieving mail item" + Office.context);
+	item = Office.context.mailbox.item;
+};
+
+
+function quickInsert(event) 
+{
+	//use the event.sourceid to map to emoji
+	//emojiTag=event.sourceId;
+	insertImageIntoMail(":"+event.source.id+":");
+	event.completed();
+}
+
+function emojifySelectedText(event) 
+{
+	//use the event.sourceid to map to emoji
+	//emojiTag=event.sourceId;
+	Office.context.mailbox.item.getSelectedDataAsync("html", function (asyncResult){
+		setItemBody(emojione.toImage(asyncResult.value.data));
+	});
+
+	
+	event.completed();
+}
+
+
+
+
+
+
+
+// Get the body type of the composed item, and set data in 
+// in the appropriate data type in the item body.
+function setItemBody(imgTag) {
+	write("Attemting to read body type... " + item);
+    item.body.getTypeAsync(
+        function (result) {
+        	write("Got result...");
+            if (result.status == Office.AsyncResultStatus.Failed){
+                write(result.error.message);
+            }
+            else {
+                // Successfully got the type of item body.
+                // Set data of the appropriate type in body.
+                if (result.value == Office.MailboxEnums.BodyType.Html) {
+                	write("Body is html...");
+                    // Body is of HTML type.
+                    // Specify HTML in the coercionType parameter
+                    // of setSelectedDataAsync.
+                    item.body.setSelectedDataAsync(imgTag,
+                        { coercionType: Office.CoercionType.Html, 
+                        asyncContext: { var3: 1, var4: 2 } },
+                        function (asyncResult) {
+                            if (asyncResult.status == 
+                                Office.AsyncResultStatus.Failed){
+                                write(asyncResult.error.message);
+                            }
+                            else {
+                                // Successfully set data in item body.
+                                // Do whatever appropriate for your scenario,
+                                // using the arguments var3 and var4 as applicable.
+                            }
+                        });
+                }
+                else {
+                    // Body is of text type. 
+
+                    //Notifications aren't working in my sample :/  need to ping the outlook folks. 
+                    Office.context.mailbox.item.notificationMessages.addAsync("TwoKey", { type: "errorMessage", message : "Emoji is not supported in plain text. Please switch to HTML" }, function(){});
+                }
+            }
+        });
+
+}
+
+
+// Writes to a div with id='message' on the page.
+function write(message){
+    document.getElementById('message').innerText += message; 
+}
+
+  function insertImageIntoMail(emojiShortName)
+  {
+  	imgTag=emojione.shortnameToImage(emojiShortName)
+  	write("Attempting to insert emoji..." + imgTag);
+  	setItemBody(imgTag);
+  	write("Done inserting emoji...");
+  }
+
+
+</script>
+<body>
+    Emoji Pane
+
+    Emojis provided by http://emojione.com/
+  <div onclick="insertImageIntoMail(':smile:');"> 
+    <p id="emojis"><script>document.write(emojione.shortnameToImage(":smile:"));</script></p>
+    </div>
+
+      <div onclick="insertImageIntoMail(':grin:');"> 
+    <p id="emojis"><script>document.write(emojione.shortnameToImage(":grin:"));</script></p>
+    </div>
+
+    <div id="message"></div>
+</body>
+</html>
