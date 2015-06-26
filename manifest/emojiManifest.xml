@@ -12,8 +12,8 @@
   <Version>1.0</Version>
   <ProviderName>LezaMax</ProviderName>
   <DefaultLocale>en-us</DefaultLocale>
-  <DisplayName DefaultValue="Emoji for Outlook"></DisplayName>
-  <Description DefaultValue="Express yourself with Emojis">
+  <DisplayName DefaultValue="EmojiO"></DisplayName>
+  <Description DefaultValue="Express yourself with Emoji">
    </Description>   
   <IconUrl DefaultValue="https://i.imgur.com/sFZfYuF.png" >
   </IconUrl>
@@ -138,6 +138,80 @@
                     </Action>
                   </Item>
 
+                   <Item id="thumbsup">
+                    <Label resid="thumbsupEmoji"/>
+                    <Tooltip resid="residEmojiTooltipDescription"/>
+                    <Supertip>
+                      <Title resid="residEmojiPaneButtonTooltipTitle" />
+                      <Description resid="residEmojiTooltipDescription" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="emojiIconthumbsup" />
+                      <bt:Image size="32" resid="emojiIconthumbsup" />
+                      <bt:Image size="80" resid="emojiIconthumbsup" />
+                    </Icon>
+                    
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>quickInsert</FunctionName>
+                    </Action>
+                  </Item>
+
+                   <Item id="disappointed">
+                    <Label resid="dissapointedEmoji"/>
+                    <Tooltip resid="residEmojiTooltipDescription"/>
+                    <Supertip>
+                      <Title resid="residEmojiPaneButtonTooltipTitle" />
+                      <Description resid="residEmojiTooltipDescription" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="emojiIcondisappointed" />
+                      <bt:Image size="32" resid="emojiIcondisappointed" />
+                      <bt:Image size="80" resid="emojiIcondisappointed" />
+                    </Icon>
+                    
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>quickInsert</FunctionName>
+                    </Action>
+                  </Item>
+
+                   <Item id="open_mouth">
+                    <Label resid="stuckOutEmoji"/>
+                    <Tooltip resid="residEmojiTooltipDescription"/>
+                    <Supertip>
+                      <Title resid="residEmojiPaneButtonTooltipTitle" />
+                      <Description resid="residEmojiTooltipDescription" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="emojiIconstuck_out" />
+                      <bt:Image size="32" resid="emojiIconstuck_out" />
+                      <bt:Image size="80" resid="emojiIconstuck_out" />
+                    </Icon>
+                    
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>quickInsert</FunctionName>
+                    </Action>
+                  </Item>
+
+                  <Item id="showGallery">
+                    <Label resid="showAll"/>
+                    <Tooltip resid="residEmojiTooltipDescription"/>
+                    <Supertip>
+                      <Title resid="residEmojiPaneButtonTooltipTitle" />
+                      <Description resid="residEmojiTooltipDescription" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="transparent" />
+                      <bt:Image size="32" resid="transparent" />
+                      <bt:Image size="80" resid="transparent" />
+                    </Icon>
+                    
+                    <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="residEmojiPaneUrl" />
+                  </Action>
+                  </Item>
+
+
+
                 </Items>
                   
               </Control> 
@@ -170,9 +244,9 @@
                   <Description resid="residEmojiTooltipDescription" />
                 </Supertip>
                 <Icon>
-                  <bt:Image size="16" resid="emojiIconWorld" />       
-                  <bt:Image size="32" resid="emojiIconWorld" />
-                  <bt:Image size="80" resid="emojiIconWorld" />
+                  <bt:Image size="16" resid="emojiIconSelection" />       
+                  <bt:Image size="32" resid="emojiIconSelection" />
+                  <bt:Image size="80" resid="emojiIconSelection" />
                 </Icon>
                   <Action xsi:type="ExecuteFunction">
                       <FunctionName>emojifySelectedText</FunctionName>
@@ -193,7 +267,12 @@
     <bt:Images>
       <bt:Image id="emojiIcon" DefaultValue="https://i.imgur.com/sFZfYuF.png" ></bt:Image>	
       <bt:Image id="emojiIconWorld" DefaultValue="https://i.imgur.com/pvNAr97.png" ></bt:Image>  
-      <bt:Image id="emojiIconGrin" DefaultValue="https://imgur.com/0hs5iGY.png" ></bt:Image>  
+      <bt:Image id="emojiIconGrin" DefaultValue="https://imgur.com/0hs5iGY.png" ></bt:Image>
+      <bt:Image id="emojiIconSelection" DefaultValue="https://i.imgur.com/ckCl9aU.png" ></bt:Image>
+      <bt:Image id="emojiIconthumbsup" DefaultValue="https://i.imgur.com/TUvpBeU.png" ></bt:Image>
+      <bt:Image id="emojiIcondisappointed" DefaultValue="https://i.imgur.com/IG2lYxz.png" ></bt:Image>
+      <bt:Image id="emojiIconstuck_out" DefaultValue="https://i.imgur.com/YSJpMFf.png" ></bt:Image>  
+      <bt:Image id="transparent" DefaultValue="https://i.imgur.com/gqQpaiR.png" ></bt:Image>   
       
       
     </bt:Images>
@@ -204,13 +283,17 @@
     </bt:Urls>
     <!--Short strings must be less than 30 characters long -->
     <bt:ShortStrings>
-      <bt:String id="groupLabel" DefaultValue="Emoji"></bt:String>
+      <bt:String id="groupLabel" DefaultValue="EmojiO"></bt:String>
       <bt:String id="residEmojiPaneButton" DefaultValue="Browse Collection"></bt:String>
       <bt:String id="residEmojiPaneButtonTooltipTitle" DefaultValue="Insert an Emoji"></bt:String>
       <bt:String id="residQuickEmojiLabel" DefaultValue="Quick Insert"></bt:String>
       <bt:String id="residEmojify" DefaultValue="Emojify Selection"></bt:String>
       <bt:String id="smileEmoji" DefaultValue="Smile"></bt:String>
       <bt:String id="grinEmoji" DefaultValue="Grin"></bt:String>
+      <bt:String id="thumbsupEmoji" DefaultValue="Thumbs up"></bt:String>
+      <bt:String id="dissapointedEmoji" DefaultValue="Dissapointed"></bt:String>
+      <bt:String id="stuckOutEmoji" DefaultValue="Surprised"></bt:String>
+      <bt:String id="showAll" DefaultValue="Browse Gallery"></bt:String>
     </bt:ShortStrings>
     <bt:LongStrings>
        <bt:String id="residEmojiTooltipDescription" DefaultValue="Select from thousands of Emojis to express yourself in mails"></bt:String>
