@@ -31,14 +31,14 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://localhost/emoji/emojiPane.html" >
+        <SourceLocation DefaultValue="https://7b0e9422-0ee0-4-231-b9ee.azurewebsites.net/emojiPane.html" >
         </SourceLocation>
         <RequestedHeight>150</RequestedHeight>
       </DesktopSettings>
     </Form>
     <Form xsi:type="ItemEdit">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://localhost/emoji/emojiPane.html" >
+        <SourceLocation DefaultValue="https://7b0e9422-0ee0-4-231-b9ee.azurewebsites.net/emojiPane.html" >
         </SourceLocation>
       </DesktopSettings>
     </Form>
@@ -278,8 +278,8 @@
     </bt:Images>
     <bt:Urls>
       <!-- TODO: If creating your own, copy the extension to someplace else, and replace the URLs -->
-      <bt:Url id="residDesktopFuncUrl" DefaultValue="https://localhost/emoji/emojiPane.html" ></bt:Url>
-      <bt:Url id="residEmojiPaneUrl" DefaultValue="https://localhost/emoji/emojiPane.html" ></bt:Url>	
+      <bt:Url id="residDesktopFuncUrl" DefaultValue="https://7b0e9422-0ee0-4-231-b9ee.azurewebsites.net/emojiPane.html" ></bt:Url>
+      <bt:Url id="residEmojiPaneUrl" DefaultValue="https://7b0e9422-0ee0-4-231-b9ee.azurewebsites.net/emojiPane.html" ></bt:Url>	
     </bt:Urls>
     <!--Short strings must be less than 30 characters long -->
     <bt:ShortStrings>
