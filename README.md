@@ -6,7 +6,7 @@ EmojiO is an Outlook Add-In that brings the fun of using Emoji to Outlook.  Deep
 ## User Features ##
 
 - **Quick Insert**. Click, click and you have an emoji inserted.
-- **Gallery**. Dozens of emoticons to chose from with real-time search built-in
+- **Gallery**. Dozens of emoticons to chose from with real-time search built-in.
 - **Emojify selection**. Parses the selected text and replaces any emoji codes or text smiles with their corresponding images. 
 
 ## Installation ##
@@ -19,10 +19,11 @@ If all you are interested in is to see the Add-In in action you can install it i
 ## Under the hood ##
 Emojio is built as an Office Web Add-In and leverages the following platform features:
 
-- [Add-In Commands](http://aka.ms/addincommands) to project user interface elements in Office
-- The [MailboxAPI](https://msdn.microsoft.com/EN-US/library/office/dn705877.aspx) of Office.js to interact with mail items
+- [Add-In Commands](http://aka.ms/addincommands) to project user interface elements in Office.
+- The [MailboxAPI](https://msdn.microsoft.com/EN-US/library/office/dn705877.aspx) of Office.js to interact with mail items.
 - Office UI Fabric to provide some of the visuals (e.g. the SearchBox)
-- [Azure Web App Servic](http://azure.microsoft.com/en-us/services/app-service/web/)e to host the underlying web app
+- [Azure Web App Servic](http://azure.microsoft.com/en-us/services/app-service/web/)e to host the underlying web app.
+- [AngularJS](https://angularjs.org/) for simple bindings and search. 
 - [EmojiOne](http://emojione.com/) for all the art. Thank you EmojiOne!
 
 ## Source Code ##
